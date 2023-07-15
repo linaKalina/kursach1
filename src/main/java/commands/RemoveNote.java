@@ -3,13 +3,13 @@ package commands;
 import domain.Note;
 import exceptions.NoteException;
 
-import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
+import static commands.Validate.validationId;
 import static domain.Note.notes;
 
-public class RemoveNote implements CommandsHandler{
+public class RemoveNote implements CommandsHandler {
     private static final Logger log = Logger.getLogger(NoteList.class.getName());
 
     @Override
@@ -31,13 +31,6 @@ public class RemoveNote implements CommandsHandler{
         }
 
     }
-    public Note validationId(int id) {
-        log.fine("вызов метода validationId");
-        for (Note note : notes) {
-            if (note.getId() == id) {
-                return note;
-            }
-        }
-        return null;
-    }
+
+
 }

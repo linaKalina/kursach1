@@ -11,8 +11,9 @@ import java.util.logging.Logger;
 
 import static domain.Note.notes;
 
-public class NoteExport implements CommandsHandler{
+public class NoteExport implements CommandsHandler {
     private static final Logger log = Logger.getLogger(NoteExport.class.getName());
+
     @Override
     public void handler() throws NoteException {
         log.fine("вызов команды export");

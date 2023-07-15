@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-public class NewNote implements CommandsHandler{
+public class NewNote implements CommandsHandler {
     private static final Logger log = Logger.getLogger(NewNote.class.getName());
 
     @Override
@@ -22,7 +22,7 @@ public class NewNote implements CommandsHandler{
                 " Для добавления нескольких меток разделяйте слова пробелом.");
         List<String> labels = Arrays.stream(scanner.nextLine().split(" ")).map(String::toUpperCase).toList();
         labelValidation(labels);
-        Note.notes.add(new Note(text,labels));
+        Note.notes.add(new Note(text, labels));
         System.out.println("Заметка добавлена");
     }
 
@@ -33,12 +33,13 @@ public class NewNote implements CommandsHandler{
             throw new NoteException("Введен текст до 3 символов");
         }
     }
+
     public void labelValidation(List<String> labels) throws NoteException {
         log.fine("проверка меток");
         for (String l : labels) {
             if (!l.matches("[a-zA-Zа-яА-Я]*")) {
                 log.info("Метки должны состоять только из букв, введено - " + l);
-                throw new NoteException ("Введены некорректные метки");
+                throw new NoteException("Введены некорректные метки");
             }
         }
     }
